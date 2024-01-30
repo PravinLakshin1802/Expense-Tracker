@@ -12,6 +12,20 @@ app.get(`/`,async (req,res)=>{
     res.json(Expense);
 });
 
+
+
+app.get("/sakthi",async(req,res)=>{
+    try {
+        res.status(201).json({
+            name:"Sakthi"
+        })
+    } catch (error) {
+        res.status(401).json({
+            name:error
+        })
+    }
+})
+
 app.get(`/expense/:id`,async(req,res)=>{
     const _id=req.params.id
     const Expense= await expense.find({_id})
